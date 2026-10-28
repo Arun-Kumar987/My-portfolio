@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arun Kumar | Developer Portfolio</title>
+<style>
+:root {
+  --bg:#050b16; --card:#0b1628; --blue:#168cff;
+  --purple:#9255ff; --text:#f3f7ff; --muted:#a8b6cc;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--text); font-family:Arial,sans-serif; line-height:1.6; }
+a { color:inherit; text-decoration:none; }
+.container { width:90%; max-width:1100px; margin:auto; }
+header { position:sticky; top:0; z-index:10; background:#050b16ed; border-bottom:1px solid #203653; backdrop-filter:blur(12px); }
+nav { min-height:70px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.logo { font-size:23px; font-weight:bold; }
+.logo span { color:var(--blue); }
+.nav-links { display:flex; gap:22px; list-style:none; }
+.nav-links a:hover { color:var(--blue); }
+.menu { display:none; background:none; color:white; border:1px solid #345; padding:8px; border-radius:8px; }
+.hero { min-height:540px; display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; padding:65px 0; }
+.tag { color:#60b5ff; letter-spacing:2px; }
+h1 { font-size:clamp(38px,6vw,65px); line-height:1.15; }
+.gradient { background:linear-gradient(90deg,#168cff,#a66bff); color:transparent; background-clip:text; }
+.hero p,.about p { color:var(--muted); margin:18px 0; }
+.btn { display:inline-block; padding:12px 20px; border-radius:9px; background:linear-gradient(110deg,var(--blue),var(--purple)); color:white; border:0; cursor:pointer; margin:8px 8px 8px 0; transition:transform .25s,box-shadow .25s; }
+.btn:hover { transform:translateY(-3px); box-shadow:0 0 22px #168cff55; }
+.btn-outline { background:transparent; border:1px solid var(--blue); }
+.portrait { width:min(290px,80%); aspect-ratio:1; margin:auto; border-radius:50%; padding:5px; background:linear-gradient(135deg,var(--blue),var(--purple)); box-shadow:0 0 35px #168cff55; animation:float 4s ease-in-out infinite; }
+.portrait img { width:100%; height:100%; object-fit:cover; border-radius:50%; background:var(--card); }
+@keyframes float { 50% { transform:translateY(-12px); } }
+section { padding:65px 0; scroll-margin-top:70px; }
+.section-title { font-size:30px; margin-bottom:28px; }
+.section-title span { color:var(--blue); }
+.about-grid,.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:35px; }
+.info { margin-top:18px; color:var(--muted); }
+.info strong { color:white; }
+.skills,.projects { display:grid; gap:18px; }
+.skills { grid-template-columns:repeat(4,1fr); }
+.projects { grid-template-columns:repeat(2,1fr); }
+.card { background:linear-gradient(145deg,#0c1b30,#07101f); border:1px solid #203956; border-radius:14px; padding:22px; transition:.3s; }
+.card:hover { transform:translateY(-5px); border-color:var(--blue); }
+.card h3 { margin-bottom:10px; }
+.card p { color:var(--muted); font-size:14px; }
+.skill-top { display:flex; justify-content:space-between; gap:8px; }
+.bar { height:7px; background:#20334c; border-radius:10px; margin-top:14px; }
+.bar span { display:block; height:100%; border-radius:10px; background:linear-gradient(90deg,var(--blue),var(--purple)); }
+.project-tags { margin:15px 0; color:#81bdff; font-size:12px; }
+.education-item { border-left:2px solid var(--blue); padding:0 0 25px 22px; }
+.education-item small { color:#68baff; }
+form { display:grid; gap:13px; }
+input,textarea { width:100%; padding:13px; border-radius:8px; border:1px solid #29415e; background:#081326; color:white; font:inherit; }
+textarea { min-height:130px; resize:vertical; }
+#form-message { color:#7ec8ff; }
+footer { border-top:1px solid #203653; padding:22px 0; color:var(--muted); }
+.footer-row { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+.reveal { opacity:0; transform:translateY(18px); transition:.7s; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+@media(max-width:800px) {
+  .menu { display:block; }
+  .nav-links { display:none; position:absolute; top:70px; left:0; right:0; background:#07101f; padding:22px; flex-direction:column; border-bottom:1px solid #203653; }
+  .nav-links.open { display:flex; }
+  .hero { grid-template-columns:1fr; text-align:center; }
+  .hero-visual { grid-row:1; }
+  .skills { grid-template-columns:repeat(2,1fr); }
+  .about-grid,.contact-grid { grid-template-columns:1fr; }
+}
+@media(max-width:480px) { .projects,.skills { grid-template-columns:1fr; } .section-title { font-size:26px; } section { padding:45px 0; } }
+</style>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a class="logo" href="#home"> &lt;/&gt; Arun<span>Kumar</span></a>
+    <button class="menu" id="menu" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+<section class="container hero" id="home">
+  <div class="reveal">
+    <div class="tag">WELCOME TO MY PORTFOLIO</div>
+    <h1>Hello, I'm<br>Arun <span class="gradient">Kumar</span></h1>
+    <h3>Full-Stack Developer | BCA Student</h3>
+    <p>I am passionate about coding, building websites, learning new technologies and creating useful digital solutions.</p>
+    <a class="btn" href="#projects">View My Projects ↗</a><a class="btn btn-outline" href="#contact">Contact Me</a>
+    <p><a href="https://github.com/Arun-Kumar987" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/arun-kumar-b55b67388/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+  </div>
+  <div class="hero-visual reveal"><div class="portrait">
+    <!-- Put your photo in this folder and name it profile.jpg, or change the filename below. -->
+    <img src="1000092387_optimized_950.png" alt="Arun Kumar profile photo"
+    onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#168cff,#9255ff)';">
+  </div></div>
+</section>
+<section id="about"><div class="container about-grid">
+  <div class="reveal"><h2 class="section-title">About <span>Me</span></h2>
+    <p>I am Arun Kumar, a BCA student interested in software development and modern web technologies. I enjoy learning, solving problems and turning ideas into projects.</p>
+    <p>I aim to improve my programming skills and build reliable, user-friendly applications.</p></div>
+  <div class="card reveal"><h3>Personal Details</h3>
+    <div class="info"><strong>Name:</strong> Arun Kumar</div><div class="info"><strong>Education:</strong> BCA Student</div>
+    <div class="info"><strong>Role:</strong> Aspiring Full-Stack Developer</div><div class="info"><strong>Interests:</strong> Coding, Cricket</div>
+    <div class="info"><strong>Location:</strong> India</div></div>
+</div></section>
+<section id="skills"><div class="container"><h2 class="section-title reveal">My <span>Skills</span></h2><div class="skills">
+  <div class="card reveal"><div class="skill-top"><h3>HTML</h3><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
+  <div class="card reveal"><div class="skill-top"><h3>CSS</h3><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
+  <div class="card reveal"><div class="skill-top"><h3>JavaScript</h3><span>75%</span></div><div class="bar"><span style="width:75%"></span></div></div>
+  <div class="card reveal"><div class="skill-top"><h3>C</h3><span>75%</span></div><div class="bar"><span style="width:75%"></span></div></div>
+  <div class="card reveal"><div class="skill-top"><h3>Python</h3><span>70%</span></div><div class="bar"><span style="width:70%"></span></div></div>
+  <div class="card reveal"><div class="skill-top"><h3>MySQL</h3><span>70%</span></div><div class="bar"><span style="width:70%"></span></div></div>
+  <div class="card reveal"><div class="skill-top"><h3>PHP</h3><span>65%</span></div><div class="bar"><span style="width:65%"></span></div></div>
+</div><p class="info">Note: Skill percentages are sample values. Update them to match your actual proficiency.</p></div></section>
+<section id="projects"><div class="container"><h2 class="section-title reveal">My <span>Projects</span></h2><div class="projects">
+  <article class="card reveal"><h3>Hostel Management System</h3><p>A concept for managing rooms, student records, fees and complaints.</p><div class="project-tags">HTML · CSS · PHP · MySQL</div><a class="btn btn-outline" href="#contact">Project Details</a></article>
+  <article class="card reveal"><h3>Calculator Web App</h3><p>A responsive calculator for everyday mathematical operations.</p><div class="project-tags">HTML · CSS · JavaScript</div><a class="btn btn-outline" href="#contact">Project Details</a></article>
+  <article class="card reveal"><h3>Educational Website</h3><p>A website concept for sharing study notes and learning resources.</p><div class="project-tags">HTML · CSS · JavaScript</div><a class="btn btn-outline" href="#contact">Project Details</a></article>
+  <article class="card reveal"><h3>Login &amp; Signup System</h3><p>A user authentication project concept for a web application.</p><div class="project-tags">PHP · MySQL · HTML · CSS</div><a class="btn btn-outline" href="#contact">Project Details</a></article>
+</div><p class="info">These are project descriptions. Add working demo and source-code links when your projects are ready.</p></div></section>
+<section id="education"><div class="container"><h2 class="section-title reveal">My <span>Education</span></h2><div class="card reveal">
+  <div class="education-item"><small>Current</small><h3>Bachelor of Computer Applications (BCA)</h3><p>College name: Add your college name</p><p>Learning programming, databases and web development.</p></div>
+  <div class="education-item"><small>Previous</small><h3>12th / Intermediate</h3><p>School name: Add your school name</p><p>Year and marks: Add your verified details.</p></div>
+</div></div></section>
+<section id="contact"><div class="container contact-grid"><div class="reveal">
+  <h2 class="section-title">Contact <span>Me</span></h2><p class="info">Have a project idea or collaboration opportunity? Send me a message.</p>
+  <!-- Replace the placeholder email below with your real email address. -->
+  <p class="info"><strong>Email:</strong> Add your email address</p>
+  <p class="info"><strong>GitHub:</strong> <a href="https://github.com/Arun-Kumar987" target="_blank" rel="noopener noreferrer">My GitHub ↗</a></p>
+  <p class="info"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/arun-kumar-b55b67388/" target="_blank" rel="noopener noreferrer">My LinkedIn ↗</a></p>
+</div>
+<form class="card reveal" id="contact-form">
+  <input name="name" placeholder="Your Name" autocomplete="name" required>
+  <input name="email" type="email" placeholder="Your Email" autocomplete="email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button class="btn" type="submit">Prepare Email Message ↗</button><p id="form-message" aria-live="polite"></p>
+</form></div></section>
+</main>
+<footer><div class="container footer-row"><p>© <span id="year"></span> Arun Kumar. All rights reserved.</p><a href="#home">Back to Top ↑</a></div></footer>
+<script>
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("nav-links");
+menu.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menu.setAttribute("aria-expanded", String(isOpen));
+});
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+  });
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// This opens an email app; it does not send or store messages on a server.
+document.getElementById("contact-form").addEventListener("submit", event => {
+  event.preventDefault();
+  const data = new FormData(event.target);
+  const name = data.get("name");
+  const email = data.get("email");
+  const message = data.get("message");
+  const recipient = "your-email@example.com"; // Replace with your real email address.
+  if (recipient === "your-email@example.com") {
+    document.getElementById("form-message").textContent =
+      "Please replace your-email@example.com in the code with your real email address first.";
+    return;
+  }
+  const subject = encodeURIComponent("Portfolio Contact from " + name);
+  const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message);
+  document.getElementById("form-message").textContent = "Opening your email app...";
+  window.location.href = "mailto:" + recipient + "?subject=" + subject + "&body=" + body;
+});
+</script>
+</body>
+</html>
